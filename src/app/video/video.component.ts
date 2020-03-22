@@ -3,6 +3,7 @@ import {
     Component,
     ElementRef,
     EventEmitter,
+    OnInit,
     Input,
     OnDestroy,
     Output,
@@ -10,6 +11,8 @@ import {
     ViewChild,
 } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
+
+import { MediaPlayer, MediaPlayerClass } from 'dashjs';
 
 import { EventHandler } from './interfaces/event-handler.interface';
 import { EventService } from './services/event.service';
@@ -19,7 +22,10 @@ import { EventService } from './services/event.service';
     templateUrl: './video.component.html',
     styleUrls: ['./video.component.css', './styles/icons.css']
 })
-export class MatVideoComponent implements AfterViewInit, OnDestroy {
+export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
+    public mPlayer: MediaPlayerClass;
+    private _src: string;
+
     @ViewChild('player') private player: ElementRef;
     @ViewChild('video') private video: ElementRef;
 
@@ -87,6 +93,11 @@ export class MatVideoComponent implements AfterViewInit, OnDestroy {
         private renderer: Renderer2,
         private evt: EventService
     ) { }
+
+    ngOnInit() {
+        this.mPlayer = MediaPlayer().create();
+        this.mPlayer.initialize(this.video.nativeElement, this._src, this.autoplay);
+    }
 
     ngAfterViewInit(): void {
         this.events = [

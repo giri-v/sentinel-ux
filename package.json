@@ -82,5 +82,7 @@
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.9.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dashjs": "^3.0.3"
+  }
 }
