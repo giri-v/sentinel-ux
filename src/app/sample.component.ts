@@ -12,17 +12,17 @@ export class SampleComponent {
 
   ngclass = 'mat-video-responsive';
 
-  src = 'assets/NASA.mp4';
-  title = 'NASA Rocket Launch';
+  src = 'http://camdrive:20080/cams/Entrycam/index.mpd';
+  title = 'Entrycam';
   width = 600;
   height = 337.5;
   currentTime = 0;
-  autoplay = false;
+  autoplay = true;
   preload = true;
   loop = false;
   quality = true;
-  download = true;
-  fullscreen = true;
+  download = false;
+  fullscreen = false;
   showFrameByFrame = false;
   keyboard = true;
   color = 'primary';
