@@ -1,14 +1,16 @@
 import { Component, VERSION } from '@angular/core';
+
+
 import buildInfo from './../../package.json';
 import xml2js from 'xml2js';
 import { StatsService } from './stats.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './sample.component.html',
-  styleUrls: ['./sample.component.css'],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
-export class SampleComponent {
+export class AppComponent {
   version = VERSION.full;
   appversion: string = buildInfo.version;
 
@@ -20,7 +22,7 @@ export class SampleComponent {
   ngclass = 'mat-video-responsive';
   gridVidClass = 'mid-size';
 
-  src = 'http://camdrive:20080/cams/Entrycam/index.mpd';
+  src = 'http://camdrive:80/Entrycam/index.mpd';
   title = 'Entrycam';
 
   currentTime = 0;
@@ -62,7 +64,7 @@ export class SampleComponent {
   }
 
   getUrlFromName(name) {
-    return 'http://camdrive:20080/cams/' + name + '/';
+    return 'http://camdrive:80/' + name + '/';
   }
 
   getHlsFromName(name) {

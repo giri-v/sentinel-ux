@@ -14,13 +14,13 @@ import { MatGridListModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SampleComponent } from './sample.component';
+import { AppComponent } from './app.component';
 import { MatVideoModule } from './video/video.module';
 import { StatsService } from './stats.service';
 
 @NgModule({
   declarations: [
-    SampleComponent,
+    AppComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -43,6 +43,6 @@ import { StatsService } from './stats.service';
     MatVideoModule,
   ],
   providers: [StatsService],
-  bootstrap: [SampleComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
