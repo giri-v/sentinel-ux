@@ -9,6 +9,6 @@ export class StatsService {
   constructor(private http: HttpClient) { }
 
   getStats() {
-    return this.http.get('http://camdrive:20080/stat/', { observe:'response', responseType: 'text'});
+    return 0;
   }
 }

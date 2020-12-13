@@ -1,8 +1,12 @@
-import { Component, VERSION } from '@angular/core';
-
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  VERSION
+} from '@angular/core';
+import { MatVideoComponent} from './video/video.component'
 
 import buildInfo from './../../package.json';
-import xml2js from 'xml2js';
 import { StatsService } from './stats.service';
 
 @Component({
@@ -11,6 +15,9 @@ import { StatsService } from './stats.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
+  @ViewChild('vid', { static: true }) private player: MatVideoComponent;
+
   version = VERSION.full;
   appversion: string = buildInfo.version;
 
@@ -35,27 +42,18 @@ export class AppComponent {
   overlay = null;
   muted = true;
 
+
+
   constructor(private statsService: StatsService) {
     console.log('app component constructor called');
   }
 
   ngOnInit() {
     //load articles
-    this.statsService.getStats().subscribe(data => {
-      console.log(data);
-
-      var parser = new xml2js.Parser(
-        {
-          trim: true,
-          explicitArray: true
-        });
-      parser.parseString(data.body, (err, result) => {
-        this.rtmpStats = result;
-        this.streams = result.rtmp.server[0].application[0].live[0].stream;
-        this.mainStream = this.streams[0];
-      });
-
-    });
+    this.statsService.getStats();
+    this.streams = ["Entrycam", "Frontcam"];
+    this.mainStream = "Entrycam";
+    
 
   }
 
@@ -64,10 +62,8 @@ export class AppComponent {
   }
 
   getUrlFromName(name) {
-    return 'http://camdrive:80/' + name + '/';
+    return 'http://camdrive:80/' + name + '/index.mpd';
+
   }
 
-  getHlsFromName(name) {
-    return 'http://camdrive:20080/hls/' + name + '/';
-  }
 }

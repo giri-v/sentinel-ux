@@ -94,11 +94,15 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(
         private renderer: Renderer2,
         private evt: EventService
-    ) { }
+    ) { 
+        console.log('video component constructor called');
+    }
 
     ngOnInit() {
         this.mPlayer = MediaPlayer().create();
+        console.log('video source: ', this.src, this.autoplay);
         this.mPlayer.initialize(this.video.nativeElement, this.src, this.autoplay);
+        console.log('video component ngOnInit called');
     }
 
     ngAfterViewInit(): void {

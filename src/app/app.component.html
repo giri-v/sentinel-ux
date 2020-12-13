@@ -36,7 +36,7 @@
 
       <div class="contentView">
       
-        <mat-video #vid *ngFor="let stream of streams" [ngClass]="ngclass" [src]="getUrlFromName(stream.name)"
+        <mat-video #vid *ngFor="let stream of streams" [ngClass]="ngclass" [src]="getUrlFromName(stream)"
           [title]="stream.name" autoplay="true" preload="auto" controlsList="nodownload">
         </mat-video>
       </div>
