@@ -6,7 +6,6 @@ import { MatSliderModule } from '@angular/material/slider';
 
 import { MatVideoSourceDirective } from './directives/mat-video-source.directive';
 import { MatVideoTrackDirective } from './directives/mat-video-track.directive';
-import { MatSliderProgressBarComponent } from './internal/mat-slider-progress-bar/mat-slider-progress-bar.component';
 import { SecondsToTimePipe } from './pipes/seconds-to-time.pipe';
 import { EventService } from './services/event.service';
 import { FullscreenService } from './services/fullscreen.service';
@@ -25,7 +24,6 @@ import { MatVideoComponent } from './video.component';
     declarations: [
         SecondsToTimePipe,
         MatVideoComponent,
-        MatSliderProgressBarComponent,
         MatPlayButtonComponent,
         MatVolumeControlComponent,
         MatDownloadButtonComponent,
