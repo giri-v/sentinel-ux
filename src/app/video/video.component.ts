@@ -26,8 +26,8 @@ export class MatVideoComponent implements OnInit, AfterViewInit, OnDestroy {
     public mPlayer: MediaPlayerClass;
     private _src: string;
 
-    @ViewChild('player') private player: ElementRef;
-    @ViewChild('video') private video: ElementRef;
+    @ViewChild('player', { static: true }) private player: ElementRef;
+    @ViewChild('video', { static: true }) private video: ElementRef;
 
     @Input() src: string = null;
     @Input() title: string = null;
