@@ -34,7 +34,7 @@ body {
 }
 
 .mat-video-responsive {
-  width: 480px;
+  width: 33%;
   border: 3px solid green;
 }
 
@@ -44,7 +44,7 @@ body {
 }
 
 .mat-video-grid {
-  width: 640px;
+  width: 64px;
 }
 
 .mat-video-fixed {

@@ -1,6 +1,6 @@
 import { Component, VERSION } from '@angular/core';
 import buildInfo from './../../package.json';
-import xml2js from 'xml2js'; 
+import xml2js from 'xml2js';
 import { StatsService } from './stats.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class SampleComponent {
   streams: Array<any>;
 
   rtmpStats: Object;
+  mainStream: any;
 
   ngclass = 'mat-video-responsive';
   gridVidClass = 'mid-size';
@@ -24,7 +25,7 @@ export class SampleComponent {
 
   currentTime = 0;
   autoplay = true;
-  preload = true;
+  preload = 'auto';
 
   keyboard = true;
   color = 'primary';
@@ -49,13 +50,22 @@ export class SampleComponent {
       parser.parseString(data.body, (err, result) => {
         this.rtmpStats = result;
         this.streams = result.rtmp.server[0].application[0].live[0].stream;
-       });
+        this.mainStream = this.streams[0];
+      });
 
     });
-    
+
+  }
+
+  updateMainStream(stream) {
+    this.mainStream = stream;
   }
 
   getUrlFromName(name) {
     return 'http://camdrive:20080/cams/' + name + '/';
+  }
+
+  getHlsFromName(name) {
+    return 'http://camdrive:20080/hls/' + name + '/';
   }
 }
