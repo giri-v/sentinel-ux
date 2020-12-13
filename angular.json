@@ -17,6 +17,7 @@
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": ["src/assets", "src/favicon.ico"],
+            "allowedCommonJsDependencies": ["dashjs", "xml2js"],
             "styles": [{
                 "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
               },"src/styles.scss"],
